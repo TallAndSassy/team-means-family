@@ -33,8 +33,9 @@ composer require tallandsassy/team-means-family
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --provider="TallAndSassy\TeamMeansFamily\TeamMeansFamilyServiceProvider" --tag="migrations"
-php artisan migrate
+# in an editor, open  /vendor/tallandsassy/team-means-family/resources/lang/en.json
+# copy and paste the values into your own copy of 'en.json' in '/resources/lang'
+# if en.json doesn't already exist, then just copy the whole file.  
 ```
 
 You can publish the config file with:

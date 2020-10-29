@@ -70,13 +70,11 @@ class TeamMeansFamilyServiceProvider extends ServiceProvider
         }
 
         // Translation
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang/', 'tassy'); // You could, for example, choose something else like Spaitie or 'Stuff'
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang/', static::$language_prefix);
         if ($this->app->runningInConsole()) {
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/tallandsassy/team-means-family'),
-                # MaybeToDo __DIR__.'/../resources/lang' => "{$this->app['path.lang']}/tallandsassy/team-means-family", see https://github.com/tallandsassy/laravel-backup/blob/master/src/BackupServiceProvider.php
-            ], 'tallandsassy.team-means-family');*/
+            $this->publishes([
+                __DIR__.'/../resources/lang' => "{$this->app['path.lang']}/vendor/".static::$language_prefix,
+                ], 'tallandsassy.team-means-family');
         }
 
 
