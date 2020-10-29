@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\Skeleton\Models;
+namespace TallAndSassy\TeamMeansFamily\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SkeletonModel extends Model
+class TeamMeansFamilyModel extends Model
 {
     public $gaurded = [];// Defualt to no mass assignements
     public $fillable = ['name'];
-    public $table = 'skeleton';
+    public $table = 'team-means-family';
 
     public function getUpperCasedName() : string
     {

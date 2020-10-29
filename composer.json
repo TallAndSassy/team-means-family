@@ -1,11 +1,11 @@
 {
-    "name": "spatie/skeleton",
-    "description": "package_description",
+    "name": "tallandsassy/team-means-family",
+    "description": "",
     "keywords": [
-        "vendor_name",
-        "package_name"
+        "tallandsassy",
+        "team-means-family"
     ],
-    "homepage": "https://github.com/vendor_name/package_name",
+    "homepage": "https://github.com/tallandsassy/team-means-family",
     "license": "MIT",
     "authors": [
         {
@@ -28,13 +28,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src",
-            "Spatie\\Skeleton\\Database\\Factories\\": "database/factories"
+            "TallAndSassy\\TeamMeansFamily\\": "src",
+            "TallAndSassy\\TeamMeansFamily\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "TallAndSassy\\TeamMeansFamily\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,10 +49,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
+                "TallAndSassy\\TeamMeansFamily\\TeamMeansFamilyServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
+                "TeamMeansFamily": "TallAndSassy\\TeamMeansFamily\\TeamMeansFamilyFacade"
             }
         }
     },

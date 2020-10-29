@@ -1,36 +1,36 @@
 <?php
 
-namespace Spatie\Skeleton;
+namespace TallAndSassy\TeamMeansFamily;
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Spatie\Skeleton\Commands\SkeletonCommand;
-use Spatie\Skeleton\Http\Controllers\SkeletonController;
+use TallAndSassy\TeamMeansFamily\Commands\TeamMeansFamilyCommand;
+use TallAndSassy\TeamMeansFamily\Http\Controllers\TeamMeansFamilyController;
 
-class SkeletonServiceProvider extends ServiceProvider
+class TeamMeansFamilyServiceProvider extends ServiceProvider
 {
-    public static string $blade_prefix = "bladeprefix"; #bladeprefix is a template term
-    public static string $language_prefix = "languageprefix"; #languageprefix is a template term
+    public static string $blade_prefix = "tassy"; #tassy is a template term
+    public static string $language_prefix = "tassy"; #tassy is a template term
 
     public function boot()
     {
         if ($this->app->runningInConsole()) {
             $this->publishes(
                 [
-                    __DIR__ . '/../config/skeleton.php' => config_path('skeleton.php'),
+                    __DIR__ . '/../config/team-means-family.php' => config_path('team-means-family.php'),
                 ],
                 'config'
             );
 
             $this->publishes(
                 [
-                    __DIR__ . '/../resources/views' => base_path('resources/views/vendor/skeleton'),
+                    __DIR__ . '/../resources/views' => base_path('resources/views/vendor/team-means-family'),
                 ],
                 'views'
             );
 
-            $migrationFileName = 'create_skeleton_table.php';
+            $migrationFileName = 'create_team_means_family_table.php';
             if (! $this->migrationFileExists($migrationFileName)) {
                 $this->publishes(
                     [
@@ -43,12 +43,12 @@ class SkeletonServiceProvider extends ServiceProvider
             }
 
             $this->publishes([
-                 __DIR__.'/../resources/public' => public_path('spatie/skeleton'),
+                 __DIR__.'/../resources/public' => public_path('tallandsassy/team-means-family'),
                 ], ['public']);
 
             // Publishing assets.
             /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('spatie/skeleton'),
+                __DIR__.'/../resources/assets' => public_path('tallandsassy/team-means-family'),
             ], 'grok.views');*/
 
             // Publishing the translation files.
@@ -56,7 +56,7 @@ class SkeletonServiceProvider extends ServiceProvider
             if ($this->app->runningInConsole()) {
                 $this->publishes([
                     __DIR__.'/../resources/lang' => "{$this->app['path.lang']}/vendor/".static::$language_prefix,
-                    ], 'spatie.skeleton');
+                    ], 'tallandsassy.team-means-family');
             }
 
 
@@ -64,28 +64,28 @@ class SkeletonServiceProvider extends ServiceProvider
             // Registering package commands.
             $this->commands(
                 [
-                    SkeletonCommand::class,
+                    TeamMeansFamilyCommand::class,
                 ]
             );
         }
 
         // Translation
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang/', 'bladeprefix'); // You could, for example, choose something else like Spaitie or 'Stuff'
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang/', 'tassy'); // You could, for example, choose something else like Spaitie or 'Stuff'
         if ($this->app->runningInConsole()) {
             // Publishing the translation files.
             /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/spatie/skeleton'),
-                # MaybeToDo __DIR__.'/../resources/lang' => "{$this->app['path.lang']}/spatie/skeleton", see https://github.com/spatie/laravel-backup/blob/master/src/BackupServiceProvider.php
-            ], 'spatie.skeleton');*/
+                __DIR__.'/../resources/lang' => resource_path('lang/tallandsassy/team-means-family'),
+                # MaybeToDo __DIR__.'/../resources/lang' => "{$this->app['path.lang']}/tallandsassy/team-means-family", see https://github.com/tallandsassy/laravel-backup/blob/master/src/BackupServiceProvider.php
+            ], 'tallandsassy.team-means-family');*/
         }
 
 
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'bladeprefix');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'tassy');
 
 
         Route::macro(
-            'bladeprefix',
+            'tassy',
             function (string $prefix) {
                 Route::prefix($prefix)->group(
                     function () {
@@ -94,25 +94,25 @@ class SkeletonServiceProvider extends ServiceProvider
                         if (App::environment(['local', 'testing'])) {
                             // prefixed url to string
                             Route::get(
-                                '/Spatie/Skeleton/sample_string', // you will absolutely need a prefix in your url
-                                // like: 'https://localhost/bladeprefix/Spatie/Skeleton/sample_string'
+                                '/TallAndSassy/TeamMeansFamily/sample_string', // you will absolutely need a prefix in your url
+                                // like: 'https://localhost/tassy/TallAndSassy/TeamMeansFamily/sample_string'
                                 function () {
-                                    return "Hello Skeleton string via blade prefix";
+                                    return "Hello TeamMeansFamily string via blade prefix";
                                 }
                             );
 
                             // prefixed url to blade view
                             Route::get(
-                                '/Spatie/Skeleton/sample_blade',
+                                '/TallAndSassy/TeamMeansFamily/sample_blade',
                                 function () {
-                                    return view('bladeprefix::sample_blade');
+                                    return view('tassy::sample_blade');
                                 }
                             );
 
                             // prefixed url to controller
                             Route::get(
-                                '/Spatie/Skeleton/controller',
-                                [SkeletonController::class, 'sample']
+                                '/TallAndSassy/TeamMeansFamily/controller',
+                                [TeamMeansFamilyController::class, 'sample']
                             );
                         }
                         // Prefix Route Samples -END-
@@ -122,31 +122,31 @@ class SkeletonServiceProvider extends ServiceProvider
                 );
             }
         );
-        Route::bladeprefix('bladeprefix'); // This works. http://test-jet.test/bladeprefix/Spatie/Skeleton/string
-        // They are addatiive, so in your own routes/web.php file, do Route::bladeprefix('staff'); to
-        // make http://test-jet.test/staff/Spatie/Skeleton/string work
+        Route::tassy('tassy'); // This works. http://test-jet.test/tassy/TallAndSassy/TeamMeansFamily/string
+        // They are addatiive, so in your own routes/web.php file, do Route::tassy('staff'); to
+        // make http://test-jet.test/staff/TallAndSassy/TeamMeansFamily/string work
 
 
         // global url samples -BEGIN-
         if (App::environment(['local', 'testing'])) {
             // global url to string
             Route::get(
-                '/grok/Spatie/Skeleton/sample_string',
+                '/grok/TallAndSassy/TeamMeansFamily/sample_string',
                 function () {
-                    return "Hello Skeleton string via global url.";
+                    return "Hello TeamMeansFamily string via global url.";
                 }
             );
 
             // global url to blade view
             Route::get(
-                '/grok/Spatie/Skeleton/sample_blade',
+                '/grok/TallAndSassy/TeamMeansFamily/sample_blade',
                 function () {
-                    return view('bladeprefix::sample_blade');
+                    return view('tassy::sample_blade');
                 }
             );
 
             // global url to controller
-            Route::get('/grok/Spatie/Skeleton/controller', [SkeletonController::class, 'sample']);
+            Route::get('/grok/TallAndSassy/TeamMeansFamily/controller', [TeamMeansFamilyController::class, 'sample']);
         }
         // global url samples -END-
 
@@ -154,8 +154,8 @@ class SkeletonServiceProvider extends ServiceProvider
 
         // GROK
         if (App::environment(['local', 'testing'])) {
-            \ElegantTechnologies\Grok\GrokWrangler::grokMe(static::class, 'Spatie', 'skeleton', 'resources/views/grok', 'bladeprefix');//bladeprefix gets macro'd out
-            Route::get('/grok/Spatie/Skeleton', fn () => view('bladeprefix::grok/index'));
+            \ElegantTechnologies\Grok\GrokWrangler::grokMe(static::class, 'TallAndSassy', 'team-means-family', 'resources/views/grok', 'tassy');//tassy gets macro'd out
+            Route::get('/grok/TallAndSassy/TeamMeansFamily', fn () => view('tassy::grok/index'));
         }
 
         // TODO: Register your livewire components that live in this package here:
@@ -187,7 +187,7 @@ class SkeletonServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/skeleton.php', 'skeleton');
+        $this->mergeConfigFrom(__DIR__ . '/../config/team-means-family.php', 'team-means-family');
     }
 
     public static function migrationFileExists(string $migrationFileName): bool
