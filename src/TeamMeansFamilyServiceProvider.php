@@ -11,7 +11,7 @@ use TallAndSassy\TeamMeansFamily\Http\Controllers\TeamMeansFamilyController;
 class TeamMeansFamilyServiceProvider extends ServiceProvider
 {
     public static string $blade_prefix = "tassy"; #tassy is a template term
-    public static string $language_prefix = "tassy"; #tassy is a template term
+    public static string $language_prefix = "TeamMeansFamilyServiceProvider"; #tassy is a template term
 
     public function boot()
     {
@@ -52,12 +52,12 @@ class TeamMeansFamilyServiceProvider extends ServiceProvider
             ], 'grok.views');*/
 
             // Publishing the translation files.
-            $this->loadTranslationsFrom(__DIR__ . '/../resources/lang/', static::$language_prefix);
-            if ($this->app->runningInConsole()) {
-                $this->publishes([
-                    __DIR__.'/../resources/lang' => "{$this->app['path.lang']}/vendor/".static::$language_prefix,
-                    ], 'tallandsassy.team-means-family');
-            }
+//            $this->loadTranslationsFrom(__DIR__ . '/../resources/lang/', static::$language_prefix);
+//            if ($this->app->runningInConsole()) {
+//                $this->publishes([
+//                    __DIR__.'/../resources/lang' => "{$this->app['path.lang']}/vendor/".static::$language_prefix,
+//                    ], 'tallandsassy.team-means-family');
+//            }
 
 
 
