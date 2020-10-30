@@ -43,6 +43,11 @@ You can publish the config file with:
 php artisan vendor:publish --provider="TallAndSassy\TeamMeansFamily\TeamMeansFamilyServiceProvider" --tag="config"
 ```
 
+```bash
+php artisan vendor:publish --provider="TallAndSassy\TeamMeansFamily\TeamMeansFamilyServiceProvider" --tag="lang"
+```
+
+
 You can grok the routes (when .env(local)) by visiting 
     
 http://test-tallandsassy.test/grok/TallAndSassy/TeamMeansFamily/string

@@ -74,7 +74,7 @@ class TeamMeansFamilyServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../resources/lang' => "{$this->app['path.lang']}/vendor/".static::$language_prefix,
-                ], 'tallandsassy.team-means-family');
+                ], 'lang'); #10/30/20' wip 'Unable to locate publishable resources.'
         }
 
 
