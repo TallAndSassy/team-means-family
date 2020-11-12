@@ -25,9 +25,9 @@ class TeamMeansFamilyServiceProvider extends ServiceProvider
 
             $this->publishes(
                 [
-                    __DIR__ . '/../resources/views' => base_path('resources/views/vendor/team-means-family'),
+                    __DIR__ . '/../resources/views/teams' => base_path('resources/views/teams'),
                 ],
-                'views'
+                'team-views'
             );
 
             $migrationFileName = 'create_team_means_family_table.php';
